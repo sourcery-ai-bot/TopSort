@@ -4,7 +4,7 @@ NIM     : 13519069
 Topik   : Topological Sort
 '''
 import os
-import util as ut
+ut = __import__('13519069_util')
 
 print("              ________  .__                   .___             ")
 print("               \_____  \ |  |   ____  ____   __| _/____ ___  ___")
