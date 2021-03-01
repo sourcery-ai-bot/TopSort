@@ -13,7 +13,6 @@ print("               /    |    \  |_\  \__(  <_> ) /_/ \  ___/ >    < ")
 print("               \_______  /____/\___  >____/\____ |\___  /__/\_ \\")
 print("                       \/          \/           \/    \/      \/\n")
 
-
 print("-----------------------------")
 print("|  Silahkan input nama file |")
 print("|        (eg : tc)          |")
@@ -22,21 +21,12 @@ print("-----------------------------")
 
 print()
 
-# try:
-#     filename = input("Input nama file : ")
-#     test = open("../test/" + filename + ".txt", 'r')
-# except FileNotFoundError:
-#     print("File does not exist, ulangi lagi")
-#     filename = input("Input lg nama file : ")
-#     test = open("../test/" + filename + ".txt", 'r')
-# finally:
-#     print("NEXT")
-
 filename = input("Input nama file : ")
 path = "../test/" + filename + ".txt"
 
 isfile = os.path.isfile(path)
-# print(isfile)
+
+# Melakukan pengecekan apakah filename terdapat pada folder test atau tidak
 while (not isfile):
     filename = input("Ulangi input nama file : ")
     path = "../test/" + filename + ".txt"
@@ -67,7 +57,7 @@ for i in range(len(temps)):
 dict = {}
 
 for i in range(len(arr)):
-    N_preq = (len(arr[i][1:len(arr[i])]))
+    N_preq = (len(arr[i][1:len(arr[i])])) # N_preq adalah banyaknya prerequisite yang blm diambil
     Arr_preq = (arr[i][1:len(arr[i])])
     dict[arr[i][0]] = {                 # Key = Matkul
         "N_preq": N_preq,               # Value = dictionary (key1 = N_preq (banyak prerequisite yang blm diambil)
@@ -113,9 +103,17 @@ else:
 semester = [x for x in semester if x] # Untuk menghapus empty array dari sebuah array
 
 if len(semester) <= 8:
-    for i in range(len(semester)):
-        print("Semester " + str(i+1) + ": ", end ="")
-        print(ut.arrayToString(semester[i]))
+    if (dict == {}):
+        for i in range(len(semester)):
+            print("Semester " + str(i+1) + ": ", end ="")
+            print(ut.arrayToString(semester[i]))
+    elif (not ut.is_Npreq_have_zero(dict)):
+        for i in range(len(semester)):
+            print("Semester " + str(i+1) + ": ", end ="")
+            print(ut.arrayToString(semester[i]))
+        print("Tidak ada urutan yang mungkin lagi")
+        print("Silahkan atur pilihan matkul kamu lagi, FIGHTING (～￣▽￣)～")
+
 
 else:
     print("Hasil proses melebihi 8 semester !!!")
