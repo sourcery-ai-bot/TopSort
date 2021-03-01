@@ -1,0 +1,5 @@
+Semester 1: C7.
+Semester 2: C5, C6.
+Semester 3: C4, C3, C2.
+Semester 4: C1.
+Semester 5: C0.

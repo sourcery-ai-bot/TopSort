@@ -76,6 +76,9 @@ print("|        ↓ ↓ ↓ ↓ ↓ ↓        |")
 print("-----------------------------")
 print()
 
+name_output = filename + "_sol.txt"
+outfile = open("../test/solution/" + name_output, 'w')
+
 if ut.is_Npreq_have_zero(dict):
     while (dict != {} and ut.is_Npreq_have_zero(dict)):
         i += 1
@@ -95,29 +98,36 @@ if ut.is_Npreq_have_zero(dict):
         ut.minus_Npreq(dict,temporary)
         ut.delete_arr(arr,temporary)
 
-else:
-    print("Tidak ada urutan yang mungkin")
-    print("Pastikan kuliah dan prerequisite nya berupa Directed Acyclic Graph (DAG)")
-    print("Silahkan atur pilihan matkul kamu lagi, FIGHTING (～￣▽￣)～")
-
 semester = [x for x in semester if x] # Untuk menghapus empty array dari sebuah array
 
 if len(semester) <= 8:
     if (dict == {}):
         for i in range(len(semester)):
             print("Semester " + str(i+1) + ": ", end ="")
+            outfile.write("Semester " + str(i+1) + ": ")
             print(ut.arrayToString(semester[i]))
+            outfile.write(ut.arrayToString(semester[i]))
+            outfile.write("\n")
     elif (not ut.is_Npreq_have_zero(dict)):
         for i in range(len(semester)):
             print("Semester " + str(i+1) + ": ", end ="")
+            outfile.write("Semester " + str(i + 1) + ": ")
             print(ut.arrayToString(semester[i]))
+            outfile.write(ut.arrayToString(semester[i]))
+            outfile.write("\n")
         print("Tidak ada urutan yang mungkin lagi")
+        outfile.write("Tidak ada urutan yang mungkin lagi\n")
+        print("Pastikan kuliah dan prerequisite nya berupa Directed Acyclic Graph (DAG)")
+        outfile.write("Pastikan kuliah dan prerequisite nya berupa Directed Acyclic Graph (DAG)\n")
         print("Silahkan atur pilihan matkul kamu lagi, FIGHTING (～￣▽￣)～")
+        outfile.write("Silahkan atur pilihan matkul kamu lagi, FIGHTING ^_^")
 
 
 else:
     print("Hasil proses melebihi 8 semester !!!")
+    outfile.write("Hasil proses melebihi 8 semester !!!\n")
     print("Tidak boleh melebihi 8 semester :(")
+    outfile.write("Tidak boleh melebihi 8 semester :(\n")
     print("Apakah tetap akan ditampilkan atau tidak perlu ?")
     print("-----------------------------")
     print("|         Opsi input        |")
@@ -131,9 +141,14 @@ else:
     if pil == 1:
         for i in range(len(semester)):
             print("Semester " + str(i + 1) + ": ", end="")
+            outfile.write("Semester " + str(i + 1) + ": ")
             print(ut.arrayToString(semester[i]))
+            outfile.write(ut.arrayToString(semester[i]))
+            outfile.write("\n")
         print("\nJangan lupa atur pilihan matkul kamu lagi, FIGHTING (～￣▽￣)～")
+        outfile.write("\nJangan lupa atur pilihan matkul kamu lagi, FIGHTING ^_^")
     else:
         print("\nSilahkan atur pilihan matkul kamu lagi, FIGHTING (～￣▽￣)～")
+        outfile.write("\nSilahkan atur pilihan matkul kamu lagi, FIGHTING ^_^")
 
 

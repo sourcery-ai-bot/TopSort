@@ -1,0 +1,8 @@
+Semester 1: C_M, C_N, C_P.
+Semester 2: C_Q, C_O.
+Semester 3: C_S.
+Semester 4: C_R.
+Semester 5: C_U, C_Y.
+Semester 6: C_T, C_V.
+Semester 7: C_X, C_W.
+Semester 8: C_Z.
