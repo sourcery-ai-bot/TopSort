@@ -37,12 +37,7 @@ def minus_Npreq(dict,arrTakes):
 
 # Untuk mengetahui apakah ada matkul yang banyak prerequisite yang blm diambil = 0
 def is_Npreq_have_zero(dict):
-    bool = False
-    for course, info_course in dict.items():
-        if info_course["N_preq"] == 0:
-            return True
-
-    return bool
+    return any(info_course["N_preq"] == 0 for course, info_course in dict.items())
 
 # Untuk convert array to string
 def arrayToString(arr):
